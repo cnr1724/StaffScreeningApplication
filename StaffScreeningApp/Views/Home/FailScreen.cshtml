@@ -1,0 +1,15 @@
+﻿@model StaffScreeningApp.Models.Staffscreening
+@{
+    ViewData["Title"] = "FailScreen Page";
+}
+<div class="container login-container">
+    <div class="card">
+        <div class="card-body">
+            <h3>Based upon your answers,below is the result</h3>
+            <h1 class="display-6 text-danger">FAIL</h1>
+            <form asp-controller="Home" asp-action="Logout" method="post" id="logoutForm">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+</div>

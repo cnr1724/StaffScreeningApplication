@@ -1,0 +1,51 @@
+﻿@model StaffScreeningApp.Models.Login
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container login-container">
+    <div class="row">
+        
+        <div class="col-md-6 login-form">
+            <span style="color:red">@ViewBag.error</span>
+            <h4> Login</h4>
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group" >
+                    <input type="text" asp-for="Email" id="login" class="form-control" placeholder="Your Email *" value="" />
+                    <span asp-validation-for="Email" class="text-danger hide-validation"></span>
+                </div>
+                <div class="form-group">
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Your Password *" value="" />
+                    <span asp-validation-for="Password" class="text-danger hide-validation"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" id="showValidationBtn" value="Login" />
+                </div>
+               <p>New User? <a href="/Home/Registration">Sign Up</a></p>
+            </form>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            // Add a click event handler to the button
+            $("#showValidationBtn").click(function () {
+                // Show the validation messages
+                $(".text-danger").show();
+            });
+        });
+    </script>
+}
+
+
+
+

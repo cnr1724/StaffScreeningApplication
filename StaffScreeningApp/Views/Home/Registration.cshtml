@@ -1,0 +1,35 @@
+﻿@model StaffScreeningApp.Models.Login
+@{
+    ViewData["Title"] = "Registration";
+}
+<div class="bodycontainer">
+    <form id="signup" asp-action="Registration">
+        <div class="header">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h3>Registration</h3>
+            <p style="color:red">@ViewBag.success</p>
+            <p style="color:red">@ViewBag.error</p>
+        </div>
+        <div class="sep"></div>
+        <div class="inputs">
+            <input type="text" asp-for="Email" placeholder="EMail" autofocus />
+            <span asp-validation-for="Email" class="text-danger hide-validation"></span>
+            <input type="password" asp-for="Password" placeholder="Password" />
+            <span asp-validation-for="Password" class="text-danger hide-validation"></span>
+            <input type="submit" id="submit"  value="SIGN UP" />
+            <p>Already User? <a href="/Home/Login">Login</a></p>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            // Add a click event handler to the button
+            $("#submit").click(function () {
+                // Show the validation messages
+                $(".text-danger").show();
+            });
+        });
+    </script>
+}

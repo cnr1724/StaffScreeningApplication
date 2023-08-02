@@ -1,0 +1,55 @@
+﻿@model StaffScreeningApp.Models.Staffscreening
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<div class="container login-container">
+    <h1 class="display-6">Screening Questions</h1>
+    <div class="card">
+        <form asp-controller="Home" asp-action="SaveModel" method="post" class="card-body">
+
+            <div> Do you have a fever of Fever of 37.8° or greater?</div>
+            <div>
+                <label>
+                    <input type="radio" asp-for="fever_check" value="Yes" />
+                    Yes
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" asp-for="fever_check" value="No" />
+                    No
+                </label>
+            </div>
+            <div>Do you have a sore throat?</div>
+            <div>
+                <label>
+                    <input type="radio" asp-for="sore_throat_check" value="Yes" />
+                    Yes
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" asp-for="sore_throat_check" value="No" />
+                    No
+                </label>
+            </div>
+
+            <div>  Do you have a runny nose?</div>
+            <div>
+                <label>
+                    <input type="radio" asp-for="runny_nose_check" value="Yes" />
+                    Yes
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" asp-for="runny_nose_check" value="No" />
+                    No
+                </label>
+            </div>
+            <input type="submit" value="Save" style=" background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;height:50px; font-size: 16px;" />
+        </form>
+
+    </div>
+</div>
